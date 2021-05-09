@@ -1,0 +1,521 @@
+/* ********** Custom Properties ********** */
+:root {
+    --first-color: #70A7D8;
+    --first-alpha-color: rgba(112, 167, 216, 0.75);
+    --second-color: #0038A8;
+    --second-alpha-color: rgba(0, 56, 168, 0.75);
+    --third-color: #F3B846;
+    --third-alpha-color: rgba(243, 184, 70, 0.75);
+    --white-color: #fff;
+    --gray-light-color: #f3f3f3;
+    --gray-color: #ccc;
+    --gray-dark-color: #666;
+    --black-color: #000;
+    --link-color: #509ee3;
+    --title-color: #333;
+    --text-color: #ddd;
+    --white-alpha-color: rgba(255, 255, 255, 0.5);
+    --black-alpha-color: rgba(0, 0, 0, 0.5);
+    --font: "Raleway", sans-serif;
+    --max-width: 1200px;
+    --header-height: 5rem;
+  }
+
+
+
+  
+
+  /* ********** Reset ********** */
+
+  html{
+      box-sizing: border-box;
+      font-size: 16px;
+      font-family: var(--font)
+
+      /* scroll-behavior: smooth; */
+  }
+  
+  *,
+  *::after,
+  *::before{
+      box-sizing: inherit;
+  }
+
+
+  body{
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--text-color);
+      /* background: linear-gradient(rgb(0, 0, 0), rgb(96, 207, 255)); */
+      background-image: url(assets/cosquin-noche2.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      min-height:  100vh;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(5,auto);
+      grid-template-areas: 
+      "header header header header header "
+      "main main main main main"
+      "main main main main main"
+      "aside aside aside aside aside"
+      "footer footer footer footer footer";
+  }
+
+  /* body > * {
+    border: thin solid #fff;
+} */
+
+.main{
+    width: 100%;
+    min-height: 90vh;
+}
+
+
+.main-start{
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.main-title{
+    font-size: 6.5vw;
+    color: var(--main-title-color);
+    padding: 2.5vh;
+}
+
+
+
+
+  a{
+      color: var(--link-color);
+      transition: all 0.3s ease-out;
+  }
+
+  a:hover {
+    opacity: 0.75;
+  }
+
+  
+  h1 {
+    margin: 0;
+    font-size: 2rem;
+  }
+  
+  h2 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  
+  h4 {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  h5 {
+    margin: 0;
+    font-size: 0.85rem;
+  }
+  
+  h6 {
+    margin: 0;
+    font-size: 0.7rem;
+  }
+  
+  img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+  p {
+        line-height: 1.6;
+    }
+
+    /* ********** Components ********** */
+
+
+
+
+
+    /* ********** Menu ********** */
+
+    .menu-boton {
+        outline: thin solid var(--first-color);
+        border: 0;
+        cursor: pointer;
+        background-color: var(--second-alpha-color);
+    }
+
+    .menu-boton svg{
+        fill: var(--first-color);
+    }
+
+
+    .nav {
+        position: fixed;
+        left: 0;
+        bottom: var(--header-height);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--second-alpha-color);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        pointer-events: none;
+    }
+
+    .nav.is-active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .nav a {
+        padding: 1.5rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        color: var(--first-color);
+    }
+
+    nav a:hover{
+        color: var(--white-color);
+        background-color: var(--first-color);
+    }
+
+
+
+    .aside .container-md {
+        padding: 6em 1rem;
+        color: var(--text-color);
+        
+    }
+
+    
+    
+    .carousel-inner h4 {
+        padding-right: 2rem;
+        font-size: 1rem;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    
+    .carousel-inner p {
+        font-size: 1rem;
+        font-weight: bold;
+        float: right;
+        padding: 1rem;
+    } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    @media screen and (min-width:1024px){
+        .menu-boton{
+            display: none;
+        }
+
+        .nav{
+            position: static;
+            width: auto;
+            opacity: 1;
+            pointer-events: auto;
+            display: flex;
+            flex-direction: row;
+            background-color: transparent;
+        }
+
+        .nav a {
+            padding: 0 1em;
+            font-size: 1.2rem;
+        }
+
+        .nav a:last-child{
+            padding-right: 0;
+        }
+
+        .nav a:hover{
+            background-color: transparent;
+        }
+
+
+    }
+
+
+
+
+
+
+    /* ********** Utilities ********** */
+    
+    .box-shadow-1 {
+        box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.25);
+    }
+
+
+    .boton{
+        font-size: 1.5vw;
+        border-radius: .5rem;
+        padding: 1vw;
+        display: inline-block;
+        width: 15vw;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        color: var(--white-color);
+        background-color: var(--first-color);
+
+    }
+    
+    
+    
+    .container{
+        margin-left: auto;
+        margin-right: auto;
+        max-width: var(--max-width);
+    }
+
+    .none{
+        display: none;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+  /* ********** Site Styles ********** */
+
+
+ 
+.header{
+    grid-area: header;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    padding: 1rem;
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--second-color)
+}
+
+.header > .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a{
+    color: var(--first-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.logo a img{
+    border-radius: 25%;
+}
+
+
+.container-social-media{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: -2rem auto;
+    padding: 1rem;
+    width: 20rem;
+    height: 140px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.container-social-media *{
+    fill: var(--first-color);
+    color: var(--white-color);
+}
+
+
+.footer{
+    margin-bottom: var(--header-height);
+    padding: 1rem;
+    text-align: center;
+    background-color: var(--second-color);
+    color: var(--white-color);
+}
+
+.footer a {
+    margin-right: 1em;
+    text-decoration: none;
+    color: var(--third-color)
+}
+
+.footer svg{
+    fill: var(--first-color);
+}
+
+
+
+
+
+.social-media-hashtag svg{
+    width: 4rem;
+    height: 4rem;
+}
+
+
+.social-media{
+    padding-left: 1rem;
+}
+
+.social-media a{
+text-decoration: none;
+padding: 0 6px;
+}
+
+.social-media svg{
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width:768px){
+    
+
+}
+
+
+@media screen and (min-width:1024px){
+    
+    body{
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(5,auto);
+        grid-template-areas: 
+        "header header header header header header"
+        "main main main main aside aside"
+        "main main main main aside aside"
+        "main main main main aside aside"
+        "footer footer footer footer footer footer";
+    }
+    
+    
+    
+    
+    .header{
+        position: sticky;
+        top: 0;
+        /* padding: 0.5rem;
+        height: 6;  */
+    }
+
+    .aside .container-md {
+        padding: 4em 0em 2em 2em;
+        width: 30vw;
+        margin-right: 2em;
+    }
+
+
+    .carousel-inner p {
+        font-size: 1rem;
+        align-items: center;
+    }
+
+    .container-social-media{
+        padding-top: 8.5em;
+    }
+
+    .footer{
+        margin-bottom: 0;
+    }
+
+
+    
+
+
+
+}
+ /* fin media 1024 */
+
+
+
+
+
+
+
+
+.main{
+    grid-area: main;
+
+}
+
+
+
+.aside{
+    grid-area: aside;
+    
+}
+
+
+
+.footer{
+    grid-area: footer;
+}
+
+
+.none{
+    display: none;
+}
+
+
+
+
