@@ -152,7 +152,7 @@ body{
 /* *COMPONENTES* */
 
 .boton{
-    margin: 2rem auto;
+    margin: 1rem auto;
     font-size: 80%;
     border: 0;
     transition: color 0.5s ease;
@@ -179,6 +179,8 @@ body{
         width: 25rem;
         margin-right: 30vw;
     }
+
+
 
 }
 
