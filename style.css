@@ -462,7 +462,26 @@ padding: 0 6px;
         width: 75%;
         display: inline-block;
     }
+    
+    #youtube{
+        margin-top: 4rem;
+    }
 
+    #youtube a{
+            padding: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            color: var(--first-color);  
+        }
+
+    #youtube a:hover{
+        color: var(--second-color);
+        background-color: var(--first-alpha-color);
+        opacity: 1;
+    }
+   
     
     
     /*  SLIDER */
@@ -539,14 +558,16 @@ padding: 0 6px;
     /* border: red thin solid; */
     margin: 4rem auto;
     width: 80vw;
-    max-height: 60vh;
+    max-height: 70vh;
+    background-color: rgba(0, 0, 0, 0.80);
+    padding: 0.5rem;
 }
 
 .form > *{
     display: block;
     margin: 1rem auto;
     padding: 0.5rem;
-    width: 100%;
+    width: 90%;
 }
 
 .form textarea{
@@ -557,7 +578,7 @@ padding: 0 6px;
     font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 6rem;
+    margin-bottom: 3rem;
 }
 
 .form input,
@@ -570,6 +591,7 @@ padding: 0 6px;
 
 .form button{
     width: 30%;
+    font-size: 90%;
     font-weight: bold;
     cursor: pointer;
 }
@@ -626,8 +648,15 @@ padding: 0 6px;
 
 /*** JUEGO ***/
 
+.container-juego{
+    margin: 3rem 1rem 1rem 1rem;
+    color: var(--text-color);
+    text-align: center;
+}
+
 .game-container {
     margin: 4rem;
+    width: 70vw;
     display: inline-block;
     box-shadow: 0px 0px 15px #aaa;
 }
@@ -635,7 +664,6 @@ padding: 0 6px;
 .game-info {
     border: 2px solid var(--first-alpha-color);
     background: var(--black-color);
-    width: 70vw;
     font-family: century gothic;
     text-align: right;
     padding: 0.5rem;
@@ -647,15 +675,14 @@ padding: 0 6px;
 }
 
 .game {
-	width: 70vw;
-	height: 50vh;
-	background: #222;
+    background: #222;
+    height: 50vh;
 }
 
 .bot {
 	background: var(--first-color);
-	width: 4rem;
-	height: 4rem;
+	width: 100px;
+	height: 100px;
 	border-radius: 50%;
 	border: 2px solid #000;
 	box-shadow: 0px 0px 10px #aaa;
@@ -973,6 +1000,11 @@ padding: 0 6px;
     .form{
         width: 33rem;
         margin-right: 30vw;
+    }
+
+    .game-container{
+        width: 50vw;
+        margin-left: 20vw;
     }
 
     

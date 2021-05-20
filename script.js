@@ -28,8 +28,11 @@ d.addEventListener("DOMContentLoaded", e => {
     scrollTopButtom(".scroll-top-btn");
     scrollSpy();
     contactFormValidations();
-
-
+    juego()
+    // responsiveMedia("youtube",
+    //                 "(min-width: 1024px)",
+    //                 `<a href="https://www.youtube.com/watch?v=ml5Xb3yNa4o" target="_blank">Click para ver Video en Youtube</a>`,
+    //                 `<iframe width="560" height="315" src="https://www.youtube.com/embed/ml5Xb3yNa4o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`);
 
 });
 
@@ -139,6 +142,67 @@ function contactFormValidations(){
     });
 
 }
+
+function juego(){
+    let puntos = 0;
+    let puntosNecesarios = 20;
+    let segundos = 10;
+    document.getElementById("tiempo").textContent = segundos;
+
+    const sumarPuntos = ()=>{
+        if (puntos >= puntosNecesarios) {
+            alert("ganaste el juego");
+            puntos = 0;
+            segundos = 10;
+        }
+        else puntos ++;
+        document.getElementById("puntos").textContent = puntos
+    }
+
+    const moverPersonaje = ()=>{
+        const bot = document.querySelector(".bot");
+        randomX = Math.random()*500;
+        randomY = Math.random()*500;
+        bot.style.top = `${randomY}px`;
+        bot.style.left = `${randomX}px`;
+    }
+
+    document.querySelector(".bot").addEventListener("mouseenter",()=>{
+        sumarPuntos();
+        moverPersonaje();
+    });
+
+    setInterval(()=>{
+        segundos--;
+        document.getElementById("tiempo").textContent = segundos;
+        if (segundos == 0) {
+            alert("se te acabó el tiempo");
+            puntos = 0;
+            document.getElementById("puntos").textContent = puntos;
+            segundos = 10;
+        }
+        
+    } ,1000)
+}
+
+
+// function responsiveMedia(id, mq, mobileContent, desktopContent){
+//     let breakpoint = w.matchMedia(mq);
+
+
+//     const responsive = (e) => {
+//         if(e.matches){
+//             document.getElementById(id).innerHTML = desktopContent;
+        
+//         } else {
+//             document.getElementById(id).innerHTML = mobileContent;
+//         }
+
+//         console.log(e.matches)
+//     }
+//         breakpoint.addListener(responsive);
+//         responsive(breakpoint);
+// }
 
 
 
