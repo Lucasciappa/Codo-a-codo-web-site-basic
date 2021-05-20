@@ -28,6 +28,7 @@ d.addEventListener("DOMContentLoaded", e => {
     scrollTopButtom(".scroll-top-btn");
     scrollSpy();
     contactFormValidations();
+    slider()
     juego()
     // responsiveMedia("youtube",
     //                 "(min-width: 1024px)",
@@ -48,10 +49,9 @@ function scrollTopButtom(btn) {
             $scrollBtn.classList.remove("hidden");
         } else {
             $scrollBtn.classList.add("hidden");
-
         }
 
-        // console.log(w.pageYOffset, d.documentElement.scrollTop );
+        console.log(w.pageYOffset, d.documentElement.scrollTop );
     })
 
     d.addEventListener("click", e => {
@@ -140,14 +140,14 @@ function contactFormValidations(){
 
 
     });
-
 }
 
 function juego(){
     let puntos = 0;
     let puntosNecesarios = 20;
     let segundos = 10;
-    document.getElementById("tiempo").textContent = segundos;
+    console.log(document.getElementById("tiempo").textContent);
+    // document.getElementById("tiempo").textContent = segundos;
 
     const sumarPuntos = ()=>{
         if (puntos >= puntosNecesarios) {
@@ -161,8 +161,8 @@ function juego(){
 
     const moverPersonaje = ()=>{
         const bot = document.querySelector(".bot");
-        randomX = Math.random()*500;
-        randomY = Math.random()*500;
+        randomX = Math.random()*350;
+        randomY = Math.random()*350;
         bot.style.top = `${randomY}px`;
         bot.style.left = `${randomX}px`;
     }
@@ -182,7 +182,39 @@ function juego(){
             segundos = 10;
         }
         
-    } ,1000)
+    } ,100000)
+}
+
+function slider(){
+    const $nextBtn = d.querySelector(".slider-btns .next"),
+     $prevBtn = d.querySelector(".slider-btns .prev"),
+     $slides = d.querySelectorAll(".slider-slide");
+
+     let i = 0;
+     d.addEventListener("click", e => {
+         if(e.target === $prevBtn){
+             e.preventDefault();
+             $slides[i].classList.remove("active");
+             i--;
+        
+             if(i < 0){
+                 i = $slides.length -1;
+             }
+             $slides[i].classList.add("active");
+ 
+         }
+         if(e.target === $nextBtn){
+             e.preventDefault();
+             $slides[i].classList.remove("active");
+             i++;
+        
+             if(i > $slides.length -1){
+                 i = 0;
+             }
+             $slides[i].classList.add("active");
+ 
+         }
+     })
 }
 
 
