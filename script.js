@@ -182,7 +182,7 @@ function juego(){
             segundos = 10;
         }
         
-    } ,100000)
+    } ,1000)
 }
 
 function slider(){

@@ -112,7 +112,7 @@
     font-size: 2.6rem;
     color: var(--main-title-color);
     padding: 6vh;
-    margin-top: 4rem;
+    margin-top: 2.7rem;
 }
 
 .main-start iframe{
@@ -360,15 +360,15 @@ padding: 0 6px;
         font-weight: bold;
         outline: 0;
         border: 0;
-        background-color: var(--first-color);
+        background-color: var(--second-color);
         cursor: pointer;
         transition: all 0.4s ease;
     }
 
 
     .scroll-top-btn:hover {
-        background-color: var(--second-color);
-        color: var(--first-color);
+        background-color: var(--first-color);
+        color: var(--second-color);
     }
 
 
@@ -503,17 +503,51 @@ padding: 0 6px;
     }
     
     
-    .container-rock-inter{
-        font-size: 1.5rem;
-        width: 100%;
+    .container-rock-inter h2{
+        font-size: 2rem;
         color: var(--text-color);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
         margin-top: 2rem;
-        padding: 2rem;
     }
+
+
+    
+/* ****************** SerchFilters *************** */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    justify-items: center;
+    margin-bottom: 2rem;
+    
+}
+
+.card{
+    margin: 1.5rem;
+    color: var(--main-color);
+    transition: all 0.3s ease-out;
+    width: 20rem;
+    height: 13rem;
+}
+
+.card img{
+    width: 100%;
+    height: 12rem;
+}
+
+.card figcaption{
+    padding: .5rem;
+    background-color: var(--second-color);
+    color: var(--first-alpha-color);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.filter {
+    /* display: none; */
+    visibility: hidden;
+    opacity: 0;
+    order: 1;
+}
 
    
     
@@ -623,7 +657,7 @@ padding: 0 6px;
 
 
 .form button{
-    width: 30%;
+    width: 50%;
     font-size: 90%;
     font-weight: bold;
     cursor: pointer;
@@ -682,11 +716,10 @@ padding: 0 6px;
 /*** JUEGO ***/
 
 .container-juego{
-    margin: 2rem 1rem;
+    margin: 3rem 1rem 1rem 1rem;
     width: 90%;
     color: var(--text-color);
     text-align: center;
-    height: 10rem;
 }
 
 .game-container {
@@ -1078,6 +1111,7 @@ padding: 0 6px;
 
     .game-container{
         width: 70%;
+        margin: 1rem 8rem;
     }
 
     .container-instagram{
@@ -1096,8 +1130,15 @@ padding: 0 6px;
 
   }
 
-  
 
+  .card{
+    width: 30rem;
+    height: 22rem;
+}
+
+.card img{
+    height: 20rem;
+}
  
 
 }
