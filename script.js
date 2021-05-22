@@ -1,4 +1,7 @@
-/*   *** MENU ***  */
+import contactFormValidations from "./scripts/form_validations.js";
+import juego from "./scripts/juego.js";
+import scrollTopButtom from "./scripts/scroll_btn.js";
+import scrollSpy from "./scripts/scroll_spy.js"
 
 
 const d = document,
@@ -19,17 +22,13 @@ const d = document,
 })(d);
 
 
-
-
-
-
 d.addEventListener("DOMContentLoaded", e => {
 
     scrollTopButtom(".scroll-top-btn");
     scrollSpy();
     contactFormValidations();
-    slider()
-    juego()
+    juego();
+    // slider()
     // responsiveMedia("youtube",
     //                 "(min-width: 1024px)",
     //                 `<a href="https://www.youtube.com/watch?v=ml5Xb3yNa4o" target="_blank">Click para ver Video en Youtube</a>`,
@@ -38,184 +37,42 @@ d.addEventListener("DOMContentLoaded", e => {
 });
 
 
-function scrollTopButtom(btn) {
-    const $scrollBtn = d.querySelector(btn);
-
-
-    w.addEventListener("scroll", e => {
-        let scrollTop = w.pageYOffset || d.documentElement.scrollTop;
-
-        if (scrollTop > 1000) {
-            $scrollBtn.classList.remove("hidden");
-        } else {
-            $scrollBtn.classList.add("hidden");
-        }
-
-        console.log(w.pageYOffset, d.documentElement.scrollTop );
-    })
-
-    d.addEventListener("click", e => {
-        if (e.target.matches(btn)) {
-            w.scrollTo({
-                behavior: "smooth",
-                top: 0,
-                // left:0
-            })
-        }
-    })
-
-}
 
 
 
+// function slider(){
+//     const $nextBtn = d.querySelector(".slider-btns .next"),
+//      $prevBtn = d.querySelector(".slider-btns .prev"),
+//      $slides = d.querySelectorAll(".slider-slide");
 
-function scrollSpy() {
-
-    const $sections = d.querySelectorAll("section[data-scroll-spy]")
-
-    const cb = (entries) => {
-        // console.log("entries", entries);
-
-        entries.forEach(entry => {
-            // console.log("entry",entry);
-            const id = entry.target.getAttribute("id");
-            if (entry.isIntersecting) {
-                d.querySelector(`a[data-scroll-spy][href="#${id}"]`).classList.add("active");
-
-            } else {
-                d.querySelector(`a[data-scroll-spy][href="#${id}"]`).classList.remove("active");
-            }
-        });
-    }
-
-    const observer = new IntersectionObserver(cb, {
-        // root: 
-        // rootMargin: "-350px",
-          threshold: [0.333, 0.75]
-    });
-
-    $sections.forEach(el => observer.observe(el))
-
-}
-
-
-
-
-
-
-function contactFormValidations(){
-    const $form = d.querySelector(".form"),
-     $inputs = d.querySelectorAll(".form [required]");
-    
-
-
-    $inputs.forEach((input) => {
-        const $span = d.createElement("span");
-        $span.id = input.name;
-        $span.textContent = input.title;
-        $span.classList.add("form-error", "none")
-        input.insertAdjacentElement("afterend", $span);
-
-    });
-
-    d.addEventListener("keyup", e=>{
-        if(e.target.matches(".form [required]")){
-            let $input = e.target,
-             pattern = $input.pattern || $input.dataset.pattern;
-        // console.log($input,pattern)
-        if(pattern && $input.value !== ""){
-            let regex = new RegExp(pattern);
-            return !regex.exec($input.value)
-             ? d.getElementById($input.name).classList.add("is-active")
-             : d.getElementById($input.name).classList.remove("is-active")
-        }
+//      let i = 0;
+//      d.addEventListener("click", e => {
+//          if(e.target === $prevBtn){
+//              e.preventDefault();
+//              $slides[i].classList.remove("active");
+//              i--;
         
-        if (!pattern){
-            return $input.value === ""
-             ? d.getElementById($input.name).classList.add("is-active")
-             : d.getElementById($input.name).classList.remove("is-active")
-
-        }
-    }
-
-
-    });
-}
-
-function juego(){
-    let puntos = 0;
-    let puntosNecesarios = 20;
-    let segundos = 10;
-    console.log(document.getElementById("tiempo").textContent);
-    // document.getElementById("tiempo").textContent = segundos;
-
-    const sumarPuntos = ()=>{
-        if (puntos >= puntosNecesarios) {
-            alert("ganaste el juego");
-            puntos = 0;
-            segundos = 10;
-        }
-        else puntos ++;
-        document.getElementById("puntos").textContent = puntos
-    }
-
-    const moverPersonaje = ()=>{
-        const bot = document.querySelector(".bot");
-        randomX = Math.random()*350;
-        randomY = Math.random()*350;
-        bot.style.top = `${randomY}px`;
-        bot.style.left = `${randomX}px`;
-    }
-
-    document.querySelector(".bot").addEventListener("mouseenter",()=>{
-        sumarPuntos();
-        moverPersonaje();
-    });
-
-    setInterval(()=>{
-        segundos--;
-        document.getElementById("tiempo").textContent = segundos;
-        if (segundos == 0) {
-            alert("se te acabó el tiempo");
-            puntos = 0;
-            document.getElementById("puntos").textContent = puntos;
-            segundos = 10;
-        }
-        
-    } ,1000)
-}
-
-function slider(){
-    const $nextBtn = d.querySelector(".slider-btns .next"),
-     $prevBtn = d.querySelector(".slider-btns .prev"),
-     $slides = d.querySelectorAll(".slider-slide");
-
-     let i = 0;
-     d.addEventListener("click", e => {
-         if(e.target === $prevBtn){
-             e.preventDefault();
-             $slides[i].classList.remove("active");
-             i--;
-        
-             if(i < 0){
-                 i = $slides.length -1;
-             }
-             $slides[i].classList.add("active");
+//              if(i < 0){
+//                  i = $slides.length -1;
+//              }
+//              $slides[i].classList.add("active");
  
-         }
-         if(e.target === $nextBtn){
-             e.preventDefault();
-             $slides[i].classList.remove("active");
-             i++;
+//          }
+//          if(e.target === $nextBtn){
+//              e.preventDefault();
+//              $slides[i].classList.remove("active");
+//              i++;
         
-             if(i > $slides.length -1){
-                 i = 0;
-             }
-             $slides[i].classList.add("active");
+//              if(i > $slides.length -1){
+//                  i = 0;
+//              }
+//              $slides[i].classList.add("active");
  
-         }
-     })
-}
+//          }
+//      })
+// }
+
+
 
 
 // function responsiveMedia(id, mq, mobileContent, desktopContent){
