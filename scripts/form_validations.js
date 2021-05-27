@@ -35,7 +35,44 @@ export default function contactFormValidations(){
 
         }
     }
+});
+
+d.addEventListener("submit", e => {
+    e.preventDefault()
+    console.log("asd");
+    let suscriptionFormData = new FormData($form);
+    let suscriptionObj = convertFormToTransactionObj(suscriptionFormData);
+    console.log(suscriptionObj);
+    saveFromToObj(suscriptionObj);
+
+});
+
+function convertFormToTransactionObj(suscriptionFormData) {
+    let formName = suscriptionFormData.get("name");
+    let formLastName = suscriptionFormData.get("last-name");
+    let formEmail = suscriptionFormData.get("email");
+    let formSubject = suscriptionFormData.get("subject");
+    let formComments = suscriptionFormData.get("comments");
+
+    return {
+    "formName": formName,
+    "formLastName": formLastName,
+    "formEmail": formEmail,
+    "formSubject": formSubject,
+    "formComments": formComments,
+}
+
+};
+
+function saveFromToObj(suscriptionObj) {
+    let contactArraySession = []
+    contactArraySession.push(suscriptionObj)
+    let contactObjJSONSession = JSON.stringify(contactArraySession);
+    console.log(contactObjJSONSession);
+    sessionStorage.setItem("contactData", contactObjJSONSession);
+    location.href = 'result-contacto.html';
+};
 
 
-    });
+
 }

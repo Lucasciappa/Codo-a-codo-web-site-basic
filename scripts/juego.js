@@ -1,10 +1,11 @@
 
 
 export default function juego(){
+    
     let puntos = 0;
     let puntosNecesarios = 20;
     let segundos = 10;
-    document.getElementById("tiempo").textContent;
+    document.getElementById("tiempo").textContent = segundos;
 
     const sumarPuntos = ()=>{
         if (puntos >= puntosNecesarios) {

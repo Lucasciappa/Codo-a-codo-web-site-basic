@@ -1,5 +1,6 @@
 import contactFormValidations from "./scripts/form_validations.js";
 import juego from "./scripts/juego.js";
+import resultContactForm from "./scripts/result_form.js";
 import scrollTopButtom from "./scripts/scroll_btn.js";
 import scrollSpy from "./scripts/scroll_spy.js"
 
@@ -24,10 +25,18 @@ const d = document,
 
 d.addEventListener("DOMContentLoaded", e => {
 
-    scrollTopButtom(".scroll-top-btn");
-    scrollSpy();
-    contactFormValidations();
-    juego();
+    console.log(location.pathname);
+    // if(location.pathname === "/result_contacto.html"){
+    //     resultContactForm();
+    // }
+    if(location.pathname === "/juego.html"){
+        juego();
+    } else {
+        scrollTopButtom(".scroll-top-btn");
+        scrollSpy();
+        contactFormValidations();
+        resultContactForm();
+    }
     // slider()
     // responsiveMedia("youtube",
     //                 "(min-width: 1024px)",
