@@ -2,9 +2,8 @@ const d = document,
  w = window;
 
 export default function scrollTopButtom(btn) {
+
     const $scrollBtn = d.querySelector(btn);
-
-
     w.addEventListener("scroll", e => {
         let scrollTop = w.pageYOffset || d.documentElement.scrollTop;
 
@@ -13,7 +12,6 @@ export default function scrollTopButtom(btn) {
         } else {
             $scrollBtn.classList.add("hidden");
         }
-
         // console.log(w.pageYOffset, d.documentElement.scrollTop );
     })
 

@@ -1,12 +1,9 @@
 const d = document;
 
-
 export default function contactFormValidations(){
     const $form = d.querySelector(".form"),
      $inputs = d.querySelectorAll(".form [required]");
     
-
-
     $inputs.forEach((input) => {
         const $span = d.createElement("span");
         $span.id = input.name;
@@ -39,10 +36,9 @@ export default function contactFormValidations(){
 
 d.addEventListener("submit", e => {
     e.preventDefault()
-    console.log("asd");
     let suscriptionFormData = new FormData($form);
     let suscriptionObj = convertFormToTransactionObj(suscriptionFormData);
-    console.log(suscriptionObj);
+    // console.log(suscriptionObj);
     saveFromToObj(suscriptionObj);
 
 });
@@ -68,11 +64,9 @@ function saveFromToObj(suscriptionObj) {
     let contactArraySession = []
     contactArraySession.push(suscriptionObj)
     let contactObjJSONSession = JSON.stringify(contactArraySession);
-    console.log(contactObjJSONSession);
+    // console.log(contactObjJSONSession);
     sessionStorage.setItem("contactData", contactObjJSONSession);
     location.href = 'result-contacto.html';
 };
-
-
 
 }

@@ -1,10 +1,7 @@
-
 const d = document;
 
 export default function scrollSpy() {
-
     const $sections = d.querySelectorAll("section[data-scroll-spy]")
-
     const cb = (entries) => {
         // console.log("entries", entries);
 
@@ -13,7 +10,6 @@ export default function scrollSpy() {
             const id = entry.target.getAttribute("id");
             if (entry.isIntersecting) {
                 d.querySelector(`a[data-scroll-spy][href="#${id}"]`).classList.add("active");
-
             } else {
                 d.querySelector(`a[data-scroll-spy][href="#${id}"]`).classList.remove("active");
             }
@@ -23,7 +19,7 @@ export default function scrollSpy() {
     const observer = new IntersectionObserver(cb, {
         // root: 
         // rootMargin: "-350px",
-          threshold: [0.333, 0.75]
+          threshold: [0.36, 0.75]
     });
 
     $sections.forEach(el => observer.observe(el))

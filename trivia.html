@@ -9,9 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/rock-rioplatense.jpg">
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="https://kit.fontawesome.com/a81c100abf.js" crossorigin="anonymous"></script>
 </head>
@@ -42,7 +39,54 @@
     </header>
 
     <main class="main">
-   
+
+      <div class="quiz-box trivia-box">
+        <div class="question-number">
+        </div>
+        <div class="question-text">
+        </div>
+        <div class="option-container">
+        </div>
+        <div class="next-question-btn">
+          <button type="button" class="trivia-btn">Next</button>
+        </div>
+        <div class="answers-indicator">
+
+        </div>
+      </div>
+
+      <div class="result-box trivia-box hide">
+        <h2>Resultados de la trivia</h2>
+        <table>
+          <tr>
+            <td>Preguntas Totales</td>
+            <td><span class="total-question">5</span></td>
+          </tr>
+          <tr>
+            <td>Intentos</td>
+            <td><span class="total-attempt">4</span></td>
+          </tr>
+          <tr>
+            <td>Correctas</td>
+            <td><span class="total-correct">3</span></td>
+          </tr>
+          <tr>
+            <td>Errores</td>
+            <td><span class="total-wrong">1</span></td>
+          </tr>
+          <tr>
+            <td>Porcentaje</td>
+            <td><span class="total-percentage">60.00%</span></td>
+          </tr>
+          <tr>
+            <td>Puntos Totales</td>
+            <td><span class="total-score">3/5</span></td>
+          </tr>
+        </table>
+        <button type="button" class="trivia-btn">Intentar de nuevo</button>
+        <button type="button" class="trivia-btn">Ir al Inicio</button>
+      </div>
+
       <div class="container-social-media">
         <svg class="social-media-hashtag" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
           <path
@@ -73,35 +117,8 @@
         </small>
       </div>
 
-      <div class="container-main">
-        <article class="form result-form">
-            <fieldset>
-                <legend>¡¡¡Gracias por escribirnos!!!</legend><br>
-                
-                <label><b>Nombre:</b></label>
-                <label id="name"></label><br><br>
-        
-                <label><b>Apellido:</b></label>
-                <label id="lastName"></label><br><br>
-        
-                <label><b>Email:</b></label> 
-                <label id="email"></label><br><br>
-        
-                <label><b>Asunto:</b></label>
-                <label id="subject"></label><br><br>
-    
-                <label><b>Comentarios:</b></label>
-                <label id="comments"></label><br><br>
-            </fieldset>
-        </article>
-       </div>
-
     </main>
-    <aside class="aside">
-      <div class="container-twitter">
-        <a class="twitter-timeline" data-width="300" data-height="650" data-theme="dark" href="https://twitter.com/rockrioplatens?ref_src=twsrc%5Etfw">Tweets by rockrioplatens</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </div>
-    </aside>
+    <aside class="aside">aside</aside>
     <footer class="footer">
       <div class="footer-diseñado-por">
         <small>Sitio diseñado por <a href="https://www.instagram.com/lucasciappa/" target="_blank"
@@ -133,12 +150,7 @@
           </a>
       </div>
     </footer>
-
-
-  <!-- JavaScript Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
-  crossorigin="anonymous"></script>
-  <script src="script.js" type="module"></script>
+    <script src="/script.js" type="module"></script>
+    <script src="/scripts/trivia.js"></script>
 </body>
 </html>

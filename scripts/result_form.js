@@ -1,13 +1,9 @@
-
 export default function resultContactForm(){
-
     const $name = document.getElementById("name"),
     $lastName = document.getElementById("lastName"),
     $email = document.getElementById("email"),
     $subject = document.getElementById("subject"),
     $comments = document.getElementById("comments");
-
-
 
  let dataJSON = sessionStorage.getItem("contactData")
 // console.log(dataJSON);
